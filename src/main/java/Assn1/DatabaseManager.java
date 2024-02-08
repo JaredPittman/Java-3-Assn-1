@@ -80,7 +80,6 @@ public class DatabaseManager {
         return authorISBN;
     }
 
-
     /**
      * This method adds a book to the database
      * @param connection
