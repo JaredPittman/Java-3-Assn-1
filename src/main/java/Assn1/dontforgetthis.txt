@@ -1,0 +1,3 @@
+for book in list:
+    for authorisbn in book:
+        if authorisbn.isbn == book.isbn:
