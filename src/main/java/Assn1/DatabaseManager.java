@@ -14,7 +14,7 @@ public class DatabaseManager {
     static final String USER = "root";
     static final String PASS = "root";
 //    static final String JAVA_BOOKS_DB_URL = "jdbc:mariadb://127.0.0.1:3308/books?user=root&password=root";
-    static final String JAVA_BOOKS_DB_URL = "jdbc:mariadb://127.0.0.1:3308/books?user=root&password=lpbroot";
+    static final String JAVA_BOOKS_DB_URL = "jdbc:mariadb://127.0.0.1:3308/books?user=root&password=root";
     static final String QUERY_ALL_AUTHORS = "SELECT * FROM authors;";
     static final String QUERY_ALL_TITLES = "SELECT * FROM titles;";
     static final String QUERY_ALL_AUTHORISBN = "SELECT * FROM authorISBN;";
@@ -135,7 +135,7 @@ public class DatabaseManager {
      * @param authorISBN
      * @throws SQLException
      */
-    public static void createBooksAuthorList(Connection connection, ArrayList<Book> books, ArrayList<Author> authors, ArrayList<List> authorISBN) throws SQLException {
+    static void createBooksAuthorList(Connection connection, ArrayList<Book> books, ArrayList<Author> authors, ArrayList<List> authorISBN) throws SQLException {
         for (Book book : books) {
             for (List<String> authorISBNList : authorISBN) {
                 if (Objects.equals(book.getIsbn(), authorISBNList.getFirst())) {
@@ -157,7 +157,7 @@ public class DatabaseManager {
      * @param authorISBN
      * @throws SQLException
      */
-    public static void createAuthorsBookList(Connection connection, ArrayList<Book> books, ArrayList<Author> authors, ArrayList<List> authorISBN) throws SQLException {
+    static void createAuthorsBookList(Connection connection, ArrayList<Book> books, ArrayList<Author> authors, ArrayList<List> authorISBN) throws SQLException {
         for (Author author : authors) {
             for (List<String> authorISBNList : authorISBN) {
                 if (author.getAuthorID() == Integer.parseInt(authorISBNList.get(1))) {
